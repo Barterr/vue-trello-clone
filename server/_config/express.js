@@ -13,7 +13,6 @@ module.exports = function(app, config) {
   app.locals.ENV_DEVELOPMENT = env === "development";
 
   app.use(logger("dev"));
-  console.log(graphQLSchema);
   app.use(
     "/api/graphql",
     bodyParser.json(),
@@ -37,15 +36,15 @@ module.exports = function(app, config) {
     express.static(config.root + "/public/static/favicon.ico")
   );
 
-  app.all("/*", function(req, res) {
-    res
-      .status(200)
-      .set({
-        "content-type": "text/html; charset=utf-8",
-        "contenqt-type": "text/html; charset=utf-8"
-      })
-      .sendFile(config.root + "/public/static/index.html");
-  });
+  // app.all("/*", function (req, res) {
+  //   res
+  //     .status(200)
+  //     .set({
+  //       "content-type": "text/html; charset=utf-8",
+  //       "contenqt-type": "text/html; charset=utf-8"
+  //     })
+  //     .sendFile(config.root + "/public/static/index.html");
+  // });
 
   app.use(express.static(config.root + "/public/static"));
 };

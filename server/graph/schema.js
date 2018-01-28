@@ -19,7 +19,9 @@ const typeDefs = `
 
 // The resolvers
 const resolvers = {
-  Query: { books: () => books }
+  Query: {
+    books: () => books
+  }
 };
 
 // Put together a schema
