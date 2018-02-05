@@ -1,0 +1,10 @@
+type Board {
+	id: ID!
+	name: String!
+	board: Board
+}
+
+type Query {
+	boardById(id: ID): Board
+	boards: [Board!]
+}

@@ -2,11 +2,15 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const BoardSchema = new Schema(
+const ListSchema = new Schema(
   {
-    title: {
+    name: {
       type: String,
       required: true
+    },
+    boardId: {
+      type: Schema.Types.ObjectId,
+      ref: "Board"
     }
   },
   {
@@ -14,4 +18,4 @@ const BoardSchema = new Schema(
   }
 );
 
-mongoose.model("Board", BoardSchema);
+mongoose.model("List", ListSchema);

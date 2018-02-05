@@ -1,31 +1,14 @@
-const { makeExecutableSchema } = require("graphql-tools");
+const { mergeSchemas } = require("graphql-tools")
 
-const books = [
-  {
-    title: "Harry Potter and the Sorcerer's stone",
-    author: "J.K. Rowling"
-  },
-  {
-    title: "Jurassic Park",
-    author: "Michael Crichton"
-  }
-];
+const BoardSchema = require("./board/boardSchema")
+const ListSchema = require("./list/listSchema")
+const CardSchema = require("./card/cardSchema")
 
-// The GraphQL schema in string form
-const typeDefs = `
-  type Query { books: [Book] }
-  type Book { title: String, author: String }
-`;
-
-// The resolvers
-const resolvers = {
-  Query: {
-    books: () => books
-  }
-};
+const LinkTypeDefs = require("./linkTypeDefs")
+const LinkResolvers = require("./linkResolvers")
 
 // Put together a schema
-module.exports = makeExecutableSchema({
-  typeDefs,
-  resolvers
-});
+module.exports = mergeSchemas({
+  schemas: [BoardSchema, ListSchema, CardSchema, LinkTypeDefs],
+  resolvers: LinkResolvers,
+})

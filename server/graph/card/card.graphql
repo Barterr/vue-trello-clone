@@ -1,0 +1,11 @@
+type Card {
+	id: ID!
+	title: String!
+	description: String!
+	listId: ID!
+}
+
+type Query {
+	cardById(id: ID!): Card
+	cardsByListId(listId: ID!): [Card!]
+}

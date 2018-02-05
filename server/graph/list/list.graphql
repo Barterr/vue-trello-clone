@@ -1,0 +1,10 @@
+type List {
+	id: ID!
+	name: String!
+	boardId: ID!
+}
+
+type Query {
+	listById(id: ID!): List
+	listsByBoardId(boardId: ID!): [List!]
+}
