@@ -7,11 +7,13 @@ module.exports = {
     sourceType: "module",
     ecmaVersion: 8
   },
-  extends: ["eslint:recommended"],
-  // plugins: [],
+  extends: ["plugin:prettier/recommended"],
+  plugins: ["prettier"],
   rules: {
-    // "prettier/prettier": "error",
-    "comma-dangle": ["error", "always-multiline"],
-    "semi": ["error", "never"]
+    "prettier/prettier": ["error", {
+      "singleQuote": true,
+      "trailingComma": "all",
+      "semi": false
+    }],
   }
 };

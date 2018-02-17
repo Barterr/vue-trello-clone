@@ -5,12 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --inspect server/index.js"
+    "start": "nodemon --inspect server/index.js",
+    "serve": "cd webapp; npm run serve"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {},
-  "devDependencies": {
-    "eslint": "^4.16.0"
-  }
+  "license": "ISC"
 }
